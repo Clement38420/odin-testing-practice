@@ -18,5 +18,8 @@ export default [
     rules: {
       "import/extensions": ["error", "ignorePackages"],
     },
+    env: {
+      jest: true,
+    },
   },
 ];
