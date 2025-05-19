@@ -43,4 +43,16 @@ describe("calculator", () => {
       expect(calculator.multiply(0.1, 0.2)).toBeCloseTo(0.02);
     });
   });
+
+  describe("Division", () => {
+    it("Happy path", () => {
+      expect(calculator.divide(20, 10)).toBe(2);
+    });
+    it("Float", () => {
+      expect(calculator.divide(0.2, 0.1)).toBeCloseTo(2);
+    });
+    it("Divide by zero", () => {
+      expect(() => calculator.divide(1, 0)).toThrow("Cannot divide by zero");
+    });
+  });
 });
