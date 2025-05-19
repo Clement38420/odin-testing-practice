@@ -51,3 +51,13 @@ function conditionedShift(char, shift) {
     return shift;
   }
 }
+
+export function analyzeArray(arr) {
+  return {
+    average: arr.length ? computeAverage(arr) : 0,
+  };
+}
+
+function computeAverage(arr) {
+  return arr.reduce((acc, cur) => acc + cur, 0) / arr.length;
+}

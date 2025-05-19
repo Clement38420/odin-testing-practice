@@ -3,6 +3,7 @@ import {
   reverseString,
   calculator,
   caesarCipher,
+  analyzeArray,
 } from "./index.js";
 
 describe("Capitalize", () => {
@@ -77,5 +78,16 @@ describe("caesarCipher", () => {
   });
   it("Negative shift", () => {
     expect(caesarCipher("HeLLo !", -20)).toBe("NkRRu !");
+  });
+});
+
+describe("analyzeArray", () => {
+  describe("average", () => {
+    it("Happy path", () => {
+      expect(analyzeArray([1, 8, 3, 4, 2, 6]).average).toBe(4);
+    });
+    it("Empty array", () => {
+      expect(analyzeArray([]).average).toBe(0);
+    });
   });
 });
