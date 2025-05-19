@@ -14,5 +14,6 @@ export function reverseString(string) {
 export const calculator = (() => {
   return {
     add: (a, b) => a + b,
+    subtract: (a, b) => a - b,
   };
 })();

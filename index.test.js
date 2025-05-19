@@ -25,4 +25,13 @@ describe("calculator", () => {
       expect(calculator.add(0.1, 0.2)).toBeCloseTo(0.3);
     });
   });
+
+  describe("Subtraction", () => {
+    it("Happy path", () => {
+      expect(calculator.subtract(10, 20)).toBe(-10);
+    });
+    it("Float", () => {
+      expect(calculator.subtract(0.1, 0.2)).toBeCloseTo(-0.1);
+    });
+  });
 });
