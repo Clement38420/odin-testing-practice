@@ -82,6 +82,12 @@ describe("caesarCipher", () => {
 });
 
 describe("analyzeArray", () => {
+  it("Non number elements", () => {
+    expect(() => analyzeArray([8, {}, 9])).toThrow(
+      "The array is filled with non number elements",
+    );
+  });
+
   describe("average", () => {
     it("Happy path", () => {
       expect(analyzeArray([1, 8, 3, 4, 2, 6]).average).toBe(4);

@@ -53,6 +53,9 @@ function conditionedShift(char, shift) {
 }
 
 export function analyzeArray(arr) {
+  if (!arr.reduce((acc, cur) => acc && !isNaN(cur), true)) {
+    throw Error("The array is filled with non number elements");
+  }
   return {
     average: arr.length ? computeAverage(arr) : 0,
   };
