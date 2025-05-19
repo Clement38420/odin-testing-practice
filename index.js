@@ -65,6 +65,7 @@ export function analyzeArray(arr) {
     average: computeAverage(arr),
     min: getMin(arr),
     max: getMax(arr),
+    length: arr.length,
   };
 }
 

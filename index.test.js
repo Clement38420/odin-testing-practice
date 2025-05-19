@@ -109,4 +109,10 @@ describe("analyzeArray", () => {
       expect(analyzeArray([1, 8, 3, 4, 2, 6]).max).toBe(8);
     });
   });
+
+  describe("length", () => {
+    it("Happy path", () => {
+      expect(analyzeArray([1, 8, 3, 4, 2, 6]).length).toBe(6);
+    });
+  });
 });
