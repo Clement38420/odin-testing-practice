@@ -69,4 +69,7 @@ describe("caesarCipher", () => {
   it("Shift exceeds alphabet", () => {
     expect(caesarCipher("xyz", 3)).toBe("abc");
   });
+  it("Upper case sensitive", () => {
+    expect(caesarCipher("XYZ", 20)).toBe("RST");
+  });
 });
