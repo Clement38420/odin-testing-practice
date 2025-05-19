@@ -26,7 +26,15 @@ export const calculator = (() => {
 export function caesarCipher(string, shift) {
   let shifted = "";
   for (let char of string) {
-    shifted += String.fromCharCode(char.charCodeAt(0) + shift);
+    shifted += shiftedChar(char, shift);
   }
   return shifted;
+}
+
+function shiftedChar(char, shift) {
+  if (char.charCodeAt(0) + shift <= 122) {
+    return String.fromCharCode(char.charCodeAt(0) + shift);
+  } else {
+    return String.fromCharCode(char.charCodeAt(0) + shift - 26);
+  }
 }

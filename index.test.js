@@ -66,4 +66,7 @@ describe("caesarCipher", () => {
   it("Happy path", () => {
     expect(caesarCipher("abc", 1)).toBe("bcd");
   });
+  it("Shift exceeds alphabet", () => {
+    expect(caesarCipher("xyz", 3)).toBe("abc");
+  });
 });
