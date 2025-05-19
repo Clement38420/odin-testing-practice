@@ -88,12 +88,25 @@ describe("analyzeArray", () => {
     );
   });
 
+  it("Empty array", () => {
+    expect(() => analyzeArray([])).toThrow("The array is empty");
+  });
+
   describe("average", () => {
     it("Happy path", () => {
       expect(analyzeArray([1, 8, 3, 4, 2, 6]).average).toBe(4);
     });
-    it("Empty array", () => {
-      expect(analyzeArray([]).average).toBe(0);
+  });
+
+  describe("min", () => {
+    it("Happy path", () => {
+      expect(analyzeArray([1, 8, 3, 4, 2, 6]).min).toBe(1);
+    });
+  });
+
+  describe("max", () => {
+    it("Happy path", () => {
+      expect(analyzeArray([1, 8, 3, 4, 2, 6]).max).toBe(8);
     });
   });
 });

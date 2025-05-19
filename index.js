@@ -56,11 +56,26 @@ export function analyzeArray(arr) {
   if (!arr.reduce((acc, cur) => acc && !isNaN(cur), true)) {
     throw Error("The array is filled with non number elements");
   }
+
+  if (!arr.length) {
+    throw Error("The array is empty");
+  }
+
   return {
-    average: arr.length ? computeAverage(arr) : 0,
+    average: computeAverage(arr),
+    min: getMin(arr),
+    max: getMax(arr),
   };
 }
 
 function computeAverage(arr) {
   return arr.reduce((acc, cur) => acc + cur, 0) / arr.length;
+}
+
+function getMin(arr) {
+  return arr.reduce((acc, cur) => (cur < acc ? cur : acc));
+}
+
+function getMax(arr) {
+  return arr.reduce((acc, cur) => (cur > acc ? cur : acc));
 }
