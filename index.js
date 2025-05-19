@@ -22,3 +22,11 @@ export const calculator = (() => {
     },
   };
 })();
+
+export function caesarCipher(string, shift) {
+  let shifted = "";
+  for (let char of string) {
+    shifted += String.fromCharCode(char.charCodeAt(0) + shift);
+  }
+  return shifted;
+}

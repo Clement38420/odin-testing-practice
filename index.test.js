@@ -1,4 +1,9 @@
-import { capitalize, reverseString, calculator } from "./index.js";
+import {
+  capitalize,
+  reverseString,
+  calculator,
+  caesarCipher,
+} from "./index.js";
 
 describe("Capitalize", () => {
   it("Happy path", () => {
@@ -54,5 +59,11 @@ describe("calculator", () => {
     it("Divide by zero", () => {
       expect(() => calculator.divide(1, 0)).toThrow("Cannot divide by zero");
     });
+  });
+});
+
+describe("caesarCipher", () => {
+  it("Happy path", () => {
+    expect(caesarCipher("abc", 1)).toBe("bcd");
   });
 });
