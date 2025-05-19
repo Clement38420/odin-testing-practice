@@ -26,29 +26,28 @@ export const calculator = (() => {
 export function caesarCipher(string, shift) {
   let shifted = "";
   for (let char of string) {
-    shifted += shiftedChar(char, shift);
+    shifted += shiftChar(char, shift);
   }
   return shifted;
 }
 
-function shiftedChar(char, shift) {
-  const shiftedCharCode = char.charCodeAt(0) + shift;
-
+function shiftChar(char, shift) {
   if (!"!.?,;:-_ ".includes(char)) {
-    if (char === char.toLowerCase()) {
-      if (shiftedCharCode <= 122) {
-        return String.fromCharCode(shiftedCharCode);
-      } else {
-        return String.fromCharCode(shiftedCharCode - 26);
-      }
-    } else {
-      if (shiftedCharCode <= 90) {
-        return String.fromCharCode(shiftedCharCode);
-      } else {
-        return String.fromCharCode(shiftedCharCode - 26);
-      }
-    }
+    return String.fromCharCode(
+      char.charCodeAt(0) + conditionedShift(char, shift),
+    );
   } else {
     return char;
+  }
+}
+
+function conditionedShift(char, shift) {
+  const alphabet = "abcdefghijklmnpoqrstuvwxyz";
+  if (alphabet.indexOf(char.toLowerCase()) + shift > 25) {
+    return shift - 26;
+  } else if (alphabet.indexOf(char.toLowerCase()) + shift < 0) {
+    return shift + 26;
+  } else {
+    return shift;
   }
 }

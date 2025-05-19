@@ -75,4 +75,7 @@ describe("caesarCipher", () => {
   it("Ignores punctuation", () => {
     expect(caesarCipher("HeLLo !", 3)).toBe("KhOOr !");
   });
+  it("Negative shift", () => {
+    expect(caesarCipher("HeLLo !", -20)).toBe("NkRRu !");
+  });
 });
