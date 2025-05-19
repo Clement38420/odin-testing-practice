@@ -70,6 +70,9 @@ describe("caesarCipher", () => {
     expect(caesarCipher("xyz", 3)).toBe("abc");
   });
   it("Upper case sensitive", () => {
-    expect(caesarCipher("XYZ", 20)).toBe("RST");
+    expect(caesarCipher("HeLLo", 3)).toBe("KhOOr");
+  });
+  it("Ignores punctuation", () => {
+    expect(caesarCipher("HeLLo !", 3)).toBe("KhOOr !");
   });
 });

@@ -33,17 +33,22 @@ export function caesarCipher(string, shift) {
 
 function shiftedChar(char, shift) {
   const shiftedCharCode = char.charCodeAt(0) + shift;
-  if (char === char.toLowerCase()) {
-    if (shiftedCharCode <= 122) {
-      return String.fromCharCode(shiftedCharCode);
+
+  if (!"!.?,;:-_ ".includes(char)) {
+    if (char === char.toLowerCase()) {
+      if (shiftedCharCode <= 122) {
+        return String.fromCharCode(shiftedCharCode);
+      } else {
+        return String.fromCharCode(shiftedCharCode - 26);
+      }
     } else {
-      return String.fromCharCode(shiftedCharCode - 26);
+      if (shiftedCharCode <= 90) {
+        return String.fromCharCode(shiftedCharCode);
+      } else {
+        return String.fromCharCode(shiftedCharCode - 26);
+      }
     }
   } else {
-    if (shiftedCharCode <= 90) {
-      return String.fromCharCode(shiftedCharCode);
-    } else {
-      return String.fromCharCode(shiftedCharCode - 26);
-    }
+    return char;
   }
 }
